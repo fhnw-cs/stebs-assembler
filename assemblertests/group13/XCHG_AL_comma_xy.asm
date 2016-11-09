@@ -1,0 +1,4 @@
+    XCHG  AL, xy
+    
+    END
+    

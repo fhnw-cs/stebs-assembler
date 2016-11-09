@@ -1,0 +1,4 @@
+
+JZ   the*lazy
+
+END

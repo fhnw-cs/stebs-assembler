@@ -1,0 +1,3 @@
+mov AL,BL
+
+END

@@ -1,0 +1,3 @@
+MOV AL,[BL[
+
+END

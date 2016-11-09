@@ -1,0 +1,3 @@
+XCHG  AL,bl
+
+END

@@ -1,0 +1,6 @@
+    NOP
+    
+NOP;asas
+
+    END
+

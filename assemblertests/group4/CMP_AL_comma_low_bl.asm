@@ -1,0 +1,3 @@
+CMP AL,bl
+
+END
