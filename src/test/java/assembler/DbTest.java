@@ -1,4 +1,5 @@
-package assemblertests;
+package assembler;
+
 import static org.junit.Assert.*;
 import org.junit.Test;
 

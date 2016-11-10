@@ -1,0 +1,34 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+// library properties
+version = '4.7.0'
+
+jar {
+    baseName = 'IKVMassembler'
+    manifest {
+        attributes("Implementation-Title": "stebs assembler",
+                   "Implementation-Version": version)
+    }
+    archiveName = "${baseName}.jar"
+}
+
+// Java project properties
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+// Dependency management repositories
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+// Project dependencies
+dependencies {
+    testCompile 'junit:junit:4.12'
+}
+
+// Custom tasks
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.14.1'
+}

@@ -1,4 +1,5 @@
-package assemblertests;
+package assembler;
+
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -13,29 +14,6 @@ import assembler.support.AsmFileReader;
 import assembler.support.Common;
 import assembler.support.InstructionFileReader;
 
-
-@RunWith(Suite.class)
-@SuiteClasses({
-  // All classes which are included in the tests
-  DbTest.class,
-  Group0Test.class,
-  Group1Test.class,
-  Group2Test.class,
-  Group3Test.class,
-  Group4Test.class,
-  Group5Test.class,
-  Group6Test.class,
-  Group7Test.class,
-  Group8Test.class,
-  Group9Test.class,
-  Group10Test.class,
-  Group11Test.class,
-  Group12Test.class,
-  Group13Test.class,
-  MiscTest.class,
-  OrgTest.class,
-  RamTest.class,
-})
 
 /**
  * The class AllTests collects the above stated test classes in a test suite
@@ -52,7 +30,7 @@ public class AllTests {
   
   @BeforeClass
   public static void setUpOnce() {
-	// Build string from file INSTRUCTION.data
+    // Build string from file INSTRUCTION.data
     instructionDataString = new InstructionFileReader().execute(Common.INSTRUCTION_FILENAME);
   }
   
@@ -66,7 +44,7 @@ public class AllTests {
    */
   public static SyntaxChecker assemble(String filename) {
     // Create assembler to store filename
-	new Assembler(filename);
+    new Assembler(filename);
 
     // Assemble code from *.asm file with support from INSTRUCTION.data
     String asmString = new AsmFileReader().execute(Common.getFilename());
