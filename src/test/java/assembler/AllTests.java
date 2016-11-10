@@ -14,6 +14,28 @@ import assembler.support.AsmFileReader;
 import assembler.support.Common;
 import assembler.support.InstructionFileReader;
 
+@RunWith(Suite.class)
+@SuiteClasses({
+  // All classes which are included in the tests
+  DbTest.class,
+  Group0Test.class,
+  Group1Test.class,
+  Group2Test.class,
+  Group3Test.class,
+  Group4Test.class,
+  Group5Test.class,
+  Group6Test.class,
+  Group7Test.class,
+  Group8Test.class,
+  Group9Test.class,
+  Group10Test.class,
+  Group11Test.class,
+  Group12Test.class,
+  Group13Test.class,
+  MiscTest.class,
+  OrgTest.class,
+  RamTest.class,
+})
 
 /**
  * The class AllTests collects the above stated test classes in a test suite

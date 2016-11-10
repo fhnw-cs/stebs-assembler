@@ -29,6 +29,7 @@ import assembler.SyntaxChecker;
  * @author ruedi.mueller
  */
 public class DbTest {
+
   @Test
   public void test_all_correct_DBs() {
     SyntaxChecker sc = AllTests.assemble("assemblertests/db/all_correct_DBs.asm");

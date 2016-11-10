@@ -8,7 +8,8 @@ jar {
     baseName = 'IKVMassembler'
     manifest {
         attributes("Implementation-Title": "stebs assembler",
-                   "Implementation-Version": version)
+                   "Implementation-Version": version,
+                   "Main-Class": "assembler.Assembler")
     }
     archiveName = "${baseName}.jar"
 }
@@ -29,6 +30,12 @@ dependencies {
 }
 
 // Custom tasks
+task testAllTests(type: Test) {
+   include '**/AllTests.class'
+   reports.junitXml.destination = "$buildDir/test-results/AllTests"
+   reports.html.destination = "$buildDir/test-results/AllTests"
+}
+
 task wrapper(type: Wrapper) {
     gradleVersion = '2.14.1'
 }

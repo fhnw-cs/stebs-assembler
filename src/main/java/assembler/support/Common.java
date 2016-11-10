@@ -24,7 +24,7 @@ public class Common {
 //  public static final String copyright = ", (c) 2015 by R. Müller, FHNW SGI chp\n";
 
   // File with assembler commands, opcode and mpm entry point.
-  public static final String INSTRUCTION_FILENAME = "res/INSTRUCTION.data";
+  public static final String INSTRUCTION_FILENAME = "INSTRUCTION.data";
   
   // Maximum number of addressing mode groups identified, cp. file syntax.txt
   public static final int MAX_NOF_GROUPS = 20;
