@@ -29,13 +29,21 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-// Custom tasks
-task testAllTests(type: Test) {
+// build DLL (requires IKVM on PATH)
+task buildDll(type: Exec, dependsOn: 'build') {
+    workingDir = "${libsDir}"
+    executable = 'ikvmc'
+    args = ['-target:library', 'IKVMassembler.jar']
+}
+
+// run all tests (not actually necessary, all tests are detected anyway)
+task testAll(type: Test) {
    include '**/AllTests.class'
    reports.junitXml.destination = "$buildDir/test-results/AllTests"
    reports.html.destination = "$buildDir/test-results/AllTests"
 }
 
+// update Gradle wrapper
 task wrapper(type: Wrapper) {
     gradleVersion = '2.14.1'
 }
