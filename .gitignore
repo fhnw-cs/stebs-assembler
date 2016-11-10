@@ -1,1 +1,6 @@
-/bin/
+.metadata
+.gradle
+RemoteSystemsTempFiles
+Servers
+bin
+build

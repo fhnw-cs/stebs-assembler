@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>ikvm_assembler_git</name>
-	<comment></comment>
+	<name>ikvm_assembler</name>
+	<comment>stebs assembler</comment>
 	<projects>
 	</projects>
 	<buildSpec>
