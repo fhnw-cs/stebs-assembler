@@ -3,6 +3,7 @@ package assembler;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.junit.BeforeClass;
 
 import assembler.SyntaxChecker;
 
@@ -18,6 +19,12 @@ import assembler.SyntaxChecker;
  * @author ruedi.mueller
  */
 public class Group3Test {
+
+  @BeforeClass
+  public static void setUp() {
+    AllTests.prepare();
+  }
+
   @Test
   public void test_JMP_symbol() {
     SyntaxChecker sc = AllTests.assemble("assemblertests/group3/JMP_symbol.asm");

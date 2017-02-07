@@ -2,6 +2,7 @@ package assembler;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
+import org.junit.BeforeClass;
 
 import java.util.StringTokenizer;
 
@@ -36,6 +37,10 @@ public class RamTest {
     return stebsMachineCode;
   }
   
+  @BeforeClass
+  public static void setUp() {
+    AllTests.prepare();
+  }
   
   @Test
   // RAM bytes compared with "Students' Training Eight Bit Simulator" stebs based on

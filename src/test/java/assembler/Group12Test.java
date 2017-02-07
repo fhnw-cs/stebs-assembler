@@ -3,6 +3,7 @@ package assembler;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.junit.BeforeClass;
 
 import assembler.SyntaxChecker;
 
@@ -26,6 +27,12 @@ import assembler.SyntaxChecker;
  * @author ruedi.mueller
  */
 public class Group12Test {
+
+  @BeforeClass
+  public static void setUp() {
+    AllTests.prepare();
+  }
+
   @Test
   public void test_all_correct_CPYDs() {
     SyntaxChecker sc = AllTests.assemble("assemblertests/group12/all_correct_CPYDs.asm");

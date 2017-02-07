@@ -52,6 +52,14 @@ task wrapper(type: Wrapper) {
     gradleVersion = '3.3'
 }
 
+// JUnit test report
+test {
+    reports {
+        junitXml.enabled = true
+        html.enabled = false
+    }               
+}
+
 
 // opensource tools for code analysis
 
@@ -70,23 +78,23 @@ findbugs {
 
 jacocoTestReport {
     reports {
-        xml.enabled true
-        csv.enabled false
-        html.enabled false
+        xml.enabled = true
+        csv.enabled = false
+        html.enabled = false
     }
 }
 
 tasks.withType(Checkstyle) {
     reports {
-        xml.enabled true
-        html.enabled false
+        xml.enabled = true
+        html.enabled = false
     }
 }
 
 tasks.withType(FindBugs) {
     reports {
         // can only enable one kind of report!
-        xml.enabled true
-        html.enabled false
+        xml.enabled = true
+        html.enabled = false
     }
 }

@@ -3,6 +3,7 @@ package assembler;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.junit.BeforeClass;
 
 import assembler.SyntaxChecker;
 
@@ -18,6 +19,12 @@ import assembler.SyntaxChecker;
  * @author ruedi.mueller
  */
 public class OrgTest {
+
+  @BeforeClass
+  public static void setUp() {
+    AllTests.prepare();
+  }
+
   @Test
   public void test_all_correct_ORGs() {
     SyntaxChecker sc = AllTests.assemble("assemblertests/org/all_correct_ORGs.asm");

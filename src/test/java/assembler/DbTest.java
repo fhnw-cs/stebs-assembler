@@ -2,6 +2,7 @@ package assembler;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
+import org.junit.BeforeClass;
 
 import assembler.SyntaxChecker;
 
@@ -29,6 +30,11 @@ import assembler.SyntaxChecker;
  * @author ruedi.mueller
  */
 public class DbTest {
+
+  @BeforeClass
+  public static void setUp() {
+    AllTests.prepare();
+  }
 
   @Test
   public void test_all_correct_DBs() {
