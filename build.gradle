@@ -40,13 +40,6 @@ task buildDll(type: Exec, dependsOn: 'build') {
     args = ['-target:library', 'IKVMassembler.jar']
 }
 
-// run all tests (not actually necessary, all tests are detected anyway)
-task testAll(type: Test) {
-   include '**/AllTests.class'
-   reports.junitXml.destination = "$buildDir/test-results/AllTests"
-   reports.html.destination = "$buildDir/test-results/AllTests"
-}
-
 // update Gradle wrapper
 task wrapper(type: Wrapper) {
     gradleVersion = '3.3'
@@ -92,6 +85,7 @@ tasks.withType(Checkstyle) {
 }
 
 tasks.withType(FindBugs) {
+    maxHeapSize = '256M'
     reports {
         // can only enable one kind of report!
         xml.enabled = true
