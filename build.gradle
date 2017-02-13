@@ -1,0 +1,94 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'checkstyle'
+apply plugin: 'jacoco'
+apply plugin: 'findbugs'
+
+
+// library properties
+version = '4.7.0'
+
+jar {
+    baseName = 'IKVMassembler'
+    manifest {
+        attributes("Implementation-Title": "stebs assembler",
+                   "Implementation-Version": version,
+                   "Main-Class": "assembler.Assembler")
+    }
+    archiveName = "${baseName}.jar"
+}
+
+// Java project properties
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+// Dependency management repositories
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+// Project dependencies
+dependencies {
+    testCompile 'junit:junit:4.12'
+}
+
+// build DLL (requires IKVM on PATH)
+task buildDll(type: Exec, dependsOn: 'build') {
+    workingDir = "${libsDir}"
+    executable = 'ikvmc'
+    args = ['-target:library', 'IKVMassembler.jar']
+}
+
+// update Gradle wrapper
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.3'
+}
+
+// JUnit test report
+test {
+    reports {
+        junitXml.enabled = true
+        html.enabled = false
+    }               
+}
+
+
+// opensource tools for code analysis
+
+checkstyle {
+    toolVersion = '7.5'
+}
+
+jacoco {
+    toolVersion = '0.7.9'
+}
+
+findbugs {
+    toolVersion = '3.0.1'
+    ignoreFailures = true
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        csv.enabled = false
+        html.enabled = false
+    }
+}
+
+tasks.withType(Checkstyle) {
+    reports {
+        xml.enabled = true
+        html.enabled = false
+    }
+}
+
+tasks.withType(FindBugs) {
+    maxHeapSize = '256M'
+    reports {
+        // can only enable one kind of report!
+        xml.enabled = true
+        html.enabled = false
+    }
+}
