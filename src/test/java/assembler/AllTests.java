@@ -1,10 +1,5 @@
 package assembler;
 
-import org.junit.BeforeClass;
-import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
-import org.junit.runners.Suite.SuiteClasses;
-
 import assembler.Assembler;
 import assembler.GroupListBuilder;
 import assembler.SyntaxChecker;
@@ -14,32 +9,9 @@ import assembler.support.AsmFileReader;
 import assembler.support.Common;
 import assembler.support.InstructionFileReader;
 
-@RunWith(Suite.class)
-@SuiteClasses({
-  // All classes which are included in the tests
-  DbTest.class,
-  Group0Test.class,
-  Group1Test.class,
-  Group2Test.class,
-  Group3Test.class,
-  Group4Test.class,
-  Group5Test.class,
-  Group6Test.class,
-  Group7Test.class,
-  Group8Test.class,
-  Group9Test.class,
-  Group10Test.class,
-  Group11Test.class,
-  Group12Test.class,
-  Group13Test.class,
-  MiscTest.class,
-  OrgTest.class,
-  RamTest.class,
-})
 
 /**
- * The class AllTests collects the above stated test classes in a test suite
- * to easily test all cases.
+ * The class AllTests defines helper methods for all tests.
  * 
  * @author ruedi.mueller
  */
@@ -48,14 +20,15 @@ public class AllTests {
   private static SyntaxChecker sc;
   // The string to be read from INSTRUCTION.data
   private static String instructionDataString;
+
   
-  
-  @BeforeClass
-  public static void setUpOnce() {
+  /**
+   * Load the instruction set.
+   */
+  public static void prepare() {
     // Build string from file INSTRUCTION.data
     instructionDataString = new InstructionFileReader().execute(Common.INSTRUCTION_FILENAME);
   }
-  
   
   /**
    * Assemble the specified file and invoke the syntax checker.

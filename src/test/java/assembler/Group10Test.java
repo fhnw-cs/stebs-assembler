@@ -3,6 +3,7 @@ package assembler;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.junit.BeforeClass;
 
 import assembler.SyntaxChecker;
 
@@ -22,6 +23,12 @@ import assembler.SyntaxChecker;
  * @author ruedi.mueller
  */
 public class Group10Test {
+
+  @BeforeClass
+  public static void setUp() {
+    AllTests.prepare();
+  }
+
   @Test
   public void test_all_correct_SWAPs() {
     SyntaxChecker sc = AllTests.assemble("assemblertests/group10/all_correct_SWAPs.asm");
