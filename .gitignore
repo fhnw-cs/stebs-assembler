@@ -1,6 +1,9 @@
 .metadata
 .gradle
-RemoteSystemsTempFiles
-Servers
+.settings
+.classpath
+.project
 bin
 build
+RemoteSystemsTempFiles
+Servers
