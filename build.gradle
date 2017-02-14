@@ -1,0 +1,42 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+// library properties
+version = '4.7.0'
+
+jar {
+    baseName = 'IKVMassembler'
+    manifest {
+        attributes("Implementation-Title": "stebs assembler",
+                   "Implementation-Version": version,
+                   "Main-Class": "assembler.Assembler")
+    }
+    archiveName = "${baseName}.jar"
+}
+
+// Java project properties
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+// Dependency management repositories
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+// Project dependencies
+dependencies {
+    testCompile 'junit:junit:4.12'
+}
+
+// build DLL (requires IKVM on PATH)
+task buildDll(type: Exec, dependsOn: 'build') {
+    workingDir = "${libsDir}"
+    executable = 'ikvmc'
+    args = ['-target:library', 'IKVMassembler.jar']
+}
+
+// update Gradle wrapper
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.14.1'
+}
