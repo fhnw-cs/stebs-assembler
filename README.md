@@ -6,3 +6,4 @@ The assembler is implemented in Java, but it can be exported to a .NET DLL using
 
 Now with extra build tools.
 This is just another comment.
+Yet again a comment.
