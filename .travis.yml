@@ -1,0 +1,19 @@
+---
+language: java
+
+sudo: false
+
+
+cache:
+  directories:
+    - $HOME/.m2
+
+script: ./gradlew clean build jacocoTestReport
+
+jdk:
+- oraclejdk8
+
+
+notifications:
+  email:
+  - matthias.krebs@fhnw.ch
